@@ -1,0 +1,22 @@
+name: FieldShift CI
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: python -m pip install -U pip
+      - run: python -m pip install -e .[dev,api]
+      - run: FIELD_SHIFT_LIVE_NASA=0 python -m pytest -q
+      - run: python -m compileall -q src
+      - run: python -m ruff check src/fieldshift/v3 src/fieldshift/api tests_v3
+      - run: python -m mypy src/fieldshift/v3 src/fieldshift/api

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "{config/**,data/v3/**,src/fieldshift/api/static/**}",
+      "maxDuration": 300
+    }
+  }
+}

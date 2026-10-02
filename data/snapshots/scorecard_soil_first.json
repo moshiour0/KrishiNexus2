@@ -1,0 +1,442 @@
+{
+  "block_id": "mymensingh_demo_block_01",
+  "generated_at": "2026-09-30T20:01:16.277855+00:00",
+  "priorities": {
+    "soil_health": 0.4,
+    "water_saving": 0.25,
+    "income": 0.15,
+    "risk": 0.1,
+    "labour": 0.1
+  },
+  "data_freshness": {
+    "weather": "synthetic",
+    "soil": "placeholder",
+    "crop_library": "config/crops.yaml v0.1"
+  },
+  "options": [
+    {
+      "rotation": {
+        "rotation_id": "R6",
+        "label": "Lentil -> Jute -> Aman rice (triple crop)",
+        "crop_ids": [
+          "lentil",
+          "jute",
+          "aman_rice"
+        ],
+        "notes": ""
+      },
+      "indicators_by_scenario": {
+        "baseline": {
+          "irrigation_requirement_mm": 263.2,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 4,
+          "soil_health_index": 95.6,
+          "income_proxy_bdt_per_ha": 225750,
+          "labour_peak_person_days_per_ha": 110,
+          "turnaround_margin_days": 18
+        },
+        "warmer_drier": {
+          "irrigation_requirement_mm": 277.9,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 1,
+          "waterlogging_risk_days": 3,
+          "soil_health_index": 95.6,
+          "income_proxy_bdt_per_ha": 225750,
+          "labour_peak_person_days_per_ha": 110,
+          "turnaround_margin_days": 18
+        },
+        "warmer_wetter": {
+          "irrigation_requirement_mm": 275.2,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 1,
+          "waterlogging_risk_days": 4,
+          "soil_health_index": 95.6,
+          "income_proxy_bdt_per_ha": 225750,
+          "labour_peak_person_days_per_ha": 110,
+          "turnaround_margin_days": 18
+        }
+      },
+      "normalized_score_by_scenario": {
+        "baseline": 0.713,
+        "warmer_drier": 0.713,
+        "warmer_wetter": 0.7163
+      },
+      "mean_score": 0.7141,
+      "max_regret": 0.0,
+      "pareto_optimal": true,
+      "rank_probability_top1": 0.623
+    },
+    {
+      "rotation": {
+        "rotation_id": "R4",
+        "label": "Lentil -> Aman rice (legume break crop)",
+        "crop_ids": [
+          "lentil",
+          "aman_rice"
+        ],
+        "notes": ""
+      },
+      "indicators_by_scenario": {
+        "baseline": {
+          "irrigation_requirement_mm": 263.2,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 3,
+          "soil_health_index": 85.8,
+          "income_proxy_bdt_per_ha": 160750,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 26
+        },
+        "warmer_drier": {
+          "irrigation_requirement_mm": 277.9,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 2,
+          "soil_health_index": 85.8,
+          "income_proxy_bdt_per_ha": 160750,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 26
+        },
+        "warmer_wetter": {
+          "irrigation_requirement_mm": 275.2,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 3,
+          "soil_health_index": 85.8,
+          "income_proxy_bdt_per_ha": 160750,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 26
+        }
+      },
+      "normalized_score_by_scenario": {
+        "baseline": 0.6951,
+        "warmer_drier": 0.7003,
+        "warmer_wetter": 0.7007
+      },
+      "mean_score": 0.6987,
+      "max_regret": 0.0179,
+      "pareto_optimal": true,
+      "rank_probability_top1": 0.375
+    },
+    {
+      "rotation": {
+        "rotation_id": "R5",
+        "label": "Mustard -> Jute -> Aman rice (triple crop)",
+        "crop_ids": [
+          "mustard",
+          "jute",
+          "aman_rice"
+        ],
+        "notes": ""
+      },
+      "indicators_by_scenario": {
+        "baseline": {
+          "irrigation_requirement_mm": 131.8,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 4,
+          "soil_health_index": 57.9,
+          "income_proxy_bdt_per_ha": 204500,
+          "labour_peak_person_days_per_ha": 110,
+          "turnaround_margin_days": 18
+        },
+        "warmer_drier": {
+          "irrigation_requirement_mm": 151.8,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 1,
+          "waterlogging_risk_days": 3,
+          "soil_health_index": 57.9,
+          "income_proxy_bdt_per_ha": 204500,
+          "labour_peak_person_days_per_ha": 110,
+          "turnaround_margin_days": 18
+        },
+        "warmer_wetter": {
+          "irrigation_requirement_mm": 129.3,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 1,
+          "waterlogging_risk_days": 5,
+          "soil_health_index": 57.9,
+          "income_proxy_bdt_per_ha": 204500,
+          "labour_peak_person_days_per_ha": 110,
+          "turnaround_margin_days": 18
+        }
+      },
+      "normalized_score_by_scenario": {
+        "baseline": 0.4439,
+        "warmer_drier": 0.4402,
+        "warmer_wetter": 0.4421
+      },
+      "mean_score": 0.4421,
+      "max_regret": 0.2742,
+      "pareto_optimal": true,
+      "rank_probability_top1": 0.0
+    },
+    {
+      "rotation": {
+        "rotation_id": "R2",
+        "label": "Mustard -> Aman rice",
+        "crop_ids": [
+          "mustard",
+          "aman_rice"
+        ],
+        "notes": ""
+      },
+      "indicators_by_scenario": {
+        "baseline": {
+          "irrigation_requirement_mm": 131.8,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 3,
+          "soil_health_index": 44.7,
+          "income_proxy_bdt_per_ha": 139500,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 26
+        },
+        "warmer_drier": {
+          "irrigation_requirement_mm": 151.8,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 2,
+          "soil_health_index": 44.7,
+          "income_proxy_bdt_per_ha": 139500,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 26
+        },
+        "warmer_wetter": {
+          "irrigation_requirement_mm": 129.3,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 4,
+          "soil_health_index": 44.7,
+          "income_proxy_bdt_per_ha": 139500,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 26
+        }
+      },
+      "normalized_score_by_scenario": {
+        "baseline": 0.4009,
+        "warmer_drier": 0.4024,
+        "warmer_wetter": 0.4015
+      },
+      "mean_score": 0.4016,
+      "max_regret": 0.3148,
+      "pareto_optimal": true,
+      "rank_probability_top1": 0.0
+    },
+    {
+      "rotation": {
+        "rotation_id": "R8",
+        "label": "Aman rice only (baseline, rest of year fallow)",
+        "crop_ids": [
+          "aman_rice"
+        ],
+        "notes": ""
+      },
+      "indicators_by_scenario": {
+        "baseline": {
+          "irrigation_requirement_mm": 0.0,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 2,
+          "soil_health_index": 43.9,
+          "income_proxy_bdt_per_ha": 64000,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 999
+        },
+        "warmer_drier": {
+          "irrigation_requirement_mm": 0.0,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 1,
+          "soil_health_index": 43.9,
+          "income_proxy_bdt_per_ha": 64000,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 999
+        },
+        "warmer_wetter": {
+          "irrigation_requirement_mm": 0.0,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 3,
+          "soil_health_index": 43.9,
+          "income_proxy_bdt_per_ha": 64000,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 999
+        }
+      },
+      "normalized_score_by_scenario": {
+        "baseline": 0.3893,
+        "warmer_drier": 0.3948,
+        "warmer_wetter": 0.3893
+      },
+      "mean_score": 0.3911,
+      "max_regret": 0.327,
+      "pareto_optimal": true,
+      "rank_probability_top1": 0.003
+    },
+    {
+      "rotation": {
+        "rotation_id": "R3",
+        "label": "Wheat -> Aman rice",
+        "crop_ids": [
+          "wheat",
+          "aman_rice"
+        ],
+        "notes": ""
+      },
+      "indicators_by_scenario": {
+        "baseline": {
+          "irrigation_requirement_mm": 298.2,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 3,
+          "soil_health_index": 41.4,
+          "income_proxy_bdt_per_ha": 151200,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 26
+        },
+        "warmer_drier": {
+          "irrigation_requirement_mm": 319.1,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 2,
+          "soil_health_index": 41.4,
+          "income_proxy_bdt_per_ha": 151200,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 26
+        },
+        "warmer_wetter": {
+          "irrigation_requirement_mm": 307.9,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 0,
+          "waterlogging_risk_days": 3,
+          "soil_health_index": 41.4,
+          "income_proxy_bdt_per_ha": 151200,
+          "labour_peak_person_days_per_ha": 90,
+          "turnaround_margin_days": 26
+        }
+      },
+      "normalized_score_by_scenario": {
+        "baseline": 0.3509,
+        "warmer_drier": 0.3555,
+        "warmer_wetter": 0.357
+      },
+      "mean_score": 0.3545,
+      "max_regret": 0.3621,
+      "pareto_optimal": false,
+      "rank_probability_top1": 0.0
+    },
+    {
+      "rotation": {
+        "rotation_id": "R1",
+        "label": "Boro rice -> Aman rice (double rice, current common practice)",
+        "crop_ids": [
+          "boro_rice",
+          "aman_rice"
+        ],
+        "notes": ""
+      },
+      "indicators_by_scenario": {
+        "baseline": {
+          "irrigation_requirement_mm": 568.9,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 4,
+          "waterlogging_risk_days": 3,
+          "soil_health_index": 43.8,
+          "income_proxy_bdt_per_ha": 171600,
+          "labour_peak_person_days_per_ha": 95,
+          "turnaround_margin_days": 26
+        },
+        "warmer_drier": {
+          "irrigation_requirement_mm": 626.6,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 14,
+          "waterlogging_risk_days": 2,
+          "soil_health_index": 43.8,
+          "income_proxy_bdt_per_ha": 171600,
+          "labour_peak_person_days_per_ha": 95,
+          "turnaround_margin_days": 26
+        },
+        "warmer_wetter": {
+          "irrigation_requirement_mm": 568.6,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 14,
+          "waterlogging_risk_days": 4,
+          "soil_health_index": 43.8,
+          "income_proxy_bdt_per_ha": 171600,
+          "labour_peak_person_days_per_ha": 95,
+          "turnaround_margin_days": 26
+        }
+      },
+      "normalized_score_by_scenario": {
+        "baseline": 0.2697,
+        "warmer_drier": 0.2725,
+        "warmer_wetter": 0.2697
+      },
+      "mean_score": 0.2706,
+      "max_regret": 0.4466,
+      "pareto_optimal": true,
+      "rank_probability_top1": 0.0
+    },
+    {
+      "rotation": {
+        "rotation_id": "R7",
+        "label": "Boro rice only (baseline, rest of year fallow)",
+        "crop_ids": [
+          "boro_rice"
+        ],
+        "notes": ""
+      },
+      "indicators_by_scenario": {
+        "baseline": {
+          "irrigation_requirement_mm": 568.9,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 4,
+          "waterlogging_risk_days": 0,
+          "soil_health_index": 44.9,
+          "income_proxy_bdt_per_ha": 107600,
+          "labour_peak_person_days_per_ha": 95,
+          "turnaround_margin_days": 999
+        },
+        "warmer_drier": {
+          "irrigation_requirement_mm": 626.6,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 14,
+          "waterlogging_risk_days": 0,
+          "soil_health_index": 44.9,
+          "income_proxy_bdt_per_ha": 107600,
+          "labour_peak_person_days_per_ha": 95,
+          "turnaround_margin_days": 999
+        },
+        "warmer_wetter": {
+          "irrigation_requirement_mm": 568.6,
+          "water_stress_risk": 0.05,
+          "heat_stress_days": 14,
+          "waterlogging_risk_days": 1,
+          "soil_health_index": 44.9,
+          "income_proxy_bdt_per_ha": 107600,
+          "labour_peak_person_days_per_ha": 95,
+          "turnaround_margin_days": 999
+        }
+      },
+      "normalized_score_by_scenario": {
+        "baseline": 0.2704,
+        "warmer_drier": 0.2704,
+        "warmer_wetter": 0.2704
+      },
+      "mean_score": 0.2704,
+      "max_regret": 0.4459,
+      "pareto_optimal": true,
+      "rank_probability_top1": 0.0
+    }
+  ],
+  "rejected": [],
+  "confidence": "medium",
+  "caveats": [
+    "Weather is SYNTHETIC (calibrated to general Mymensingh climatology), not a live NASA POWER/IMERG pull -- see engine/weather.py and blueprint Section 5.3.",
+    "Soil values in this field context are regional placeholders, not a SoilGrids pull for this exact block.",
+    "Crop coefficients and economic figures are a mix of cited literature values and explicit placeholders -- see config/crops.yaml 'review_status' and 'sources' per crop before treating any number as fact.",
+    "Climate scenarios use an illustrative delta-method shift, not NASA NEX-GDDP-CMIP6 model output."
+  ]
+}

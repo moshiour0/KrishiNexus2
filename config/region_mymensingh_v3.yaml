@@ -1,0 +1,345 @@
+dimensions:
+- soil_health
+- nutrient_balance
+- soil_water_resilience
+- irrigation_demand
+- drought_risk
+- flood_waterlogging_risk
+- heat_stress_risk
+- yield_potential
+- yield_stability
+- economic_return
+- operational_feasibility
+- rotation_diversity
+- observation_consistency
+dimension_definitions:
+  soil_health:
+    features:
+      soc_change_proxy_pct:
+        weight: 0.25
+        direction: higher
+        scale:
+        - -5
+        - 5
+      residue_score:
+        weight: 0.2
+        direction: higher
+        scale:
+        - 0
+        - 1
+      ground_cover_fraction:
+        weight: 0.15
+        direction: higher
+        scale:
+        - 0
+        - 1
+      pH_suitability:
+        weight: 0.15
+        direction: higher
+        scale:
+        - 0
+        - 1
+  nutrient_balance:
+    features:
+      nitrogen_balance_proxy:
+        weight: 0.4
+        direction: higher
+        scale:
+        - -150
+        - 150
+      phosphorus_balance_proxy:
+        weight: 0.2
+        direction: higher
+        scale:
+        - -60
+        - 80
+      potassium_balance_proxy:
+        weight: 0.2
+        direction: higher
+        scale:
+        - -100
+        - 150
+  soil_water_resilience:
+    features:
+      water_holding_capacity_mm:
+        weight: 0.45
+        direction: higher
+        scale:
+        - 50
+        - 250
+      mean_rootzone_moisture_fraction:
+        weight: 0.2
+        direction: higher
+        scale:
+        - 0
+        - 1
+      soil_water_deficit_mm:
+        weight: 0.15
+        direction: lower
+        scale:
+        - 0
+        - 150
+      mean_smap_rootzone_moisture:
+        weight: 0.2
+        direction: higher
+        scale:
+        - 0
+        - 1
+        missing_policy: ignore
+  irrigation_demand:
+    features:
+      irrigation_mm:
+        weight: 0.65
+        direction: lower
+        scale:
+        - 0
+        - 700
+      irrigation_reliability_burden:
+        weight: 0.2
+        direction: lower
+        scale:
+        - 0
+        - 300
+      water_productivity:
+        weight: 0.15
+        direction: higher
+        scale:
+        - 0
+        - 5
+  drought_risk:
+    features:
+      water_stress_fraction:
+        weight: 0.5
+        direction: lower
+        scale:
+        - 0
+        - 1
+      severe_water_stress_fraction:
+        weight: 0.25
+        direction: lower
+        scale:
+        - 0
+        - 1
+      max_consecutive_dry_days:
+        weight: 0.25
+        direction: lower
+        scale:
+        - 0
+        - 60
+  flood_waterlogging_risk:
+    features:
+      waterlogging_days:
+        weight: 0.45
+        direction: lower
+        scale:
+        - 0
+        - 30
+      heavy_rain_days:
+        weight: 0.2
+        direction: lower
+        scale:
+        - 0
+        - 50
+      flood_exposure:
+        weight: 0.35
+        direction: lower
+        scale:
+        - 0
+        - 1
+  heat_stress_risk:
+    features:
+      heat_stress_days:
+        weight: 0.55
+        direction: lower
+        scale:
+        - 0
+        - 30
+      heat_degree_days:
+        weight: 0.45
+        direction: lower
+        scale:
+        - 0
+        - 150
+  yield_potential:
+    features:
+      climate_adjusted_yield_kg_ha:
+        weight: 1.0
+        direction: higher
+        scale:
+        - 0
+        - 16000
+  yield_stability:
+    features:
+      scenario_yield_min_ratio:
+        weight: 0.45
+        direction: higher
+        scale:
+        - 0
+        - 1
+      scenario_yield_cv:
+        weight: 0.35
+        direction: lower
+        scale:
+        - 0
+        - 0.5
+      mean_hls_ndvi:
+        weight: 0.1
+        direction: higher
+        scale:
+        - 0.2
+        - 0.9
+      mean_hls_ndmi:
+        weight: 0.1
+        direction: higher
+        scale:
+        - 0.0
+        - 0.8
+  economic_return:
+    features:
+      net_return_bdt_ha:
+        weight: 0.65
+        direction: higher
+        scale:
+        - -100000
+        - 300000
+      roi:
+        weight: 0.2
+        direction: higher
+        scale:
+        - -1
+        - 5
+      income_volatility_proxy:
+        weight: 0.15
+        direction: lower
+        scale:
+        - 0
+        - 1
+  operational_feasibility:
+    features:
+      labour_peak_person_days_ha:
+        weight: 0.45
+        direction: lower
+        scale:
+        - 0
+        - 150
+      labour_total_person_days_ha:
+        weight: 0.25
+        direction: lower
+        scale:
+        - 0
+        - 300
+      calendar_margin_days:
+        weight: 0.2
+        direction: higher
+        scale:
+        - 0
+        - 120
+      market_access_burden:
+        weight: 0.1
+        direction: lower
+        scale:
+        - 0
+        - 1
+  rotation_diversity:
+    features:
+      family_diversity:
+        weight: 0.45
+        direction: higher
+        scale:
+        - 0
+        - 1
+      disease_break_value:
+        weight: 0.35
+        direction: higher
+        scale:
+        - 0
+        - 1
+      legume_fraction:
+        weight: 0.2
+        direction: higher
+        scale:
+        - 0
+        - 1
+  observation_consistency:
+    missing_policy: ignore
+    features:
+      model_vs_modis_et_error_pct:
+        weight: 0.45
+        direction: lower
+        scale:
+        - 0
+        - 80
+      smap_model_abs_error_m3_m3:
+        weight: 0.35
+        direction: lower
+        scale:
+        - 0
+        - 0.15
+      remote_observation_coverage_fraction:
+        weight: 0.2
+        direction: higher
+        scale:
+        - 0
+        - 1
+field:
+  field_id: mymensingh_demo_v3
+  lat: 24.75
+  lon: 90.41
+  area_ha: 0.4
+  elevation_m: 18
+  land_type: medium highland
+  irrigation_source: shallow tubewell
+  previous_crop: null
+  soil:
+    ph: 6.4
+    soc_pct: 1.1
+    total_n_mgkg: 800
+    available_p_mgkg: 12
+    exchangeable_k_mgkg: 140
+    ec_ds_m: 1.0
+    cec_cmolkg: 18
+    bulk_density_g_cm3: 1.38
+    sand_pct: 20
+    silt_pct: 48
+    clay_pct: 32
+    soil_depth_m: 1.2
+    field_capacity_v_v: 0.31
+    wilting_point_v_v: 0.16
+    drainage_class: medium
+    n_mineralization_fraction: 0.02
+    p_available_fraction: 0.15
+    k_available_fraction: 0.1
+    nutrient_profile_years: 1.0
+  farmer:
+    irrigation_reliability: 0.8
+    labour_available_person_days_ha: 120
+    budget_bdt_ha: 100000
+    market_access_score: 0.8
+    risk_tolerance: 0.5
+    preferred_crops:
+    - mustard
+    - lentil
+    - aman_rice
+    avoided_crops: []
+    water_available_mm_season: 900
+baseline_rotation:
+- boro_rice
+- aman_rice
+constraints:
+  turnaround_days: 10
+  max_cycle_days: 760
+search:
+  max_sequence_length: 4
+  avoid_consecutive_family: true
+uncertainty:
+  seed: 42
+  n_samples_default: 64
+soil_model:
+  horizon_years: 3
+validation:
+  water_balance_tolerance_mm: 1.0e-06
+units:
+  currency: BDT
+  area: ha
+  water: mm
+  labour: person-days/ha

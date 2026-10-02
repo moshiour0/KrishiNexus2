@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fieldshift"
+version = "3.1.0"
+description = "Evidence-aware crop rotation decision support engine"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "PyYAML>=6.0,<7",
+  # The deployed Vercel entrypoint imports the FastAPI app directly. Keep this
+  # in the default dependency set so builders using pyproject.toml don't need
+  # to know about an optional extra.
+  "fastapi>=0.120,<1",
+  # Imported lazily; required only when the server-side GEE connector is enabled.
+  "earthengine-api>=1.5,<2",
+]
+
+[project.optional-dependencies]
+api = [
+  "uvicorn[standard]>=0.30,<1",
+]
+dev = [
+  "pytest>=8,<9",
+  "ruff>=0.8,<1",
+  "mypy>=1.13,<2",
+  "httpx2>=2,<3",
+  "types-PyYAML>=6.0",
+]
+
+[project.scripts]
+fieldshift-v3 = "fieldshift.v3.cli:main"
+fieldshift-api = "fieldshift.api.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"fieldshift.api" = ["static/*"]
+
+[tool.ruff]
+line-length = 120
+exclude = ["src/fieldshift/v2"]
+
+[tool.ruff.lint]
+ignore = ["BLE001"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+exclude = "src/fieldshift/v2"

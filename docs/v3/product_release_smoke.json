@@ -1,0 +1,9 @@
+{
+  "product_version": "3.1.0",
+  "engine_version": "3.0.0",
+  "tests": "47 passed",
+  "ui_bytes": 58404,
+  "files": 144,
+  "wheel_validated": true,
+  "product_flow": "Field \u2192 Evidence \u2192 Priorities \u2192 Strategies \u2192 Climate Lab \u2192 Decision Report"
+}

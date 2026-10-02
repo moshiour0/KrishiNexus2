@@ -1,0 +1,168 @@
+# fieldshift crop library -- Mymensingh pilot, v0.1
+#
+# RULE (blueprint Section 6.2): every numeric value here needs a citation or a
+# named local expert. Anything without one is marked review_status: placeholder
+# and MUST be shown to the user as an editable default -- never presented as
+# fact. Kc = crop coefficient (FAO-56 single-Kc method, see engine/water.py).
+#
+# Sowing windows and season assignment (rabi / kharif1 / kharif2) reflect the
+# general Bangladesh cropping calendar and should be checked against local
+# Department of Agricultural Extension (DAE) / BARI / BRRI advisories for
+# Mymensingh district specifically before relying on them.
+
+crops:
+
+  boro_rice:
+    display_name: "Boro rice (irrigated, dry season)"
+    family: Poaceae
+    season: rabi
+    sowing_window: ["12-15", "01-15"]      # transplant window
+    duration_days: 145
+    stage_days: [20, 35, 60, 30]           # ini, dev, mid, late
+    kc: {ini: 1.05, mid: 1.20, end: 0.90}
+    root_depth_m: 0.5
+    n_fixing: false
+    residue_return: medium
+    heat_critical_tmax_c: 35
+    heat_sensitive_stage: "flowering (booting to heading)"
+    labour_person_days_per_ha: 95
+    price_bdt_per_kg: 32
+    reference_yield_kg_per_ha: 5800
+    prod_cost_bdt_per_ha: 78000
+    ph_range: [5.5, 7.5]
+    tolerates_waterlogging: true
+    review_status: placeholder
+    sources:
+      - "Kc line is the commonly-cited generic FAO-56 'rice' approximation (FAO Irrigation & Drainage Paper 56, Table 12: fao.org/3/x0490E/x0490e00.htm), NOT a Bangladesh-specific or paddy-water-balance value."
+      - "CAUTION: standard dryland Kc tables do not represent flooded-paddy water balance well. A semi-arid Indo-Gangetic Plain lysimeter study (Choudhury & Singh 2016, Agric. Water Manage. 176:142-150) measured FAO-56-stage Kc of roughly 1.06-1.12 (ini), 1.73-1.88 (mid), 1.36-1.45 (end) for transplanted puddled rice -- notably higher than the line used here."
+      - "ACTION: replace with Bangladesh Rice Research Institute (BRRI) field figures for Boro before Phase-2 (blueprint Section 6.2)."
+      - "Price, yield and cost figures are round illustrative placeholders, not current market data. Replace with current DAE/BBS figures for Mymensingh."
+
+  aman_rice:
+    display_name: "Aman rice (monsoon, rainfed/supplementary)"
+    family: Poaceae
+    season: kharif2
+    sowing_window: ["07-15", "08-10"]      # transplant window
+    duration_days: 130
+    stage_days: [20, 30, 55, 25]
+    kc: {ini: 1.05, mid: 1.20, end: 0.90}
+    root_depth_m: 0.5
+    n_fixing: false
+    residue_return: medium
+    heat_critical_tmax_c: 35
+    heat_sensitive_stage: "flowering"
+    labour_person_days_per_ha: 90
+    price_bdt_per_kg: 30
+    reference_yield_kg_per_ha: 4200
+    prod_cost_bdt_per_ha: 62000
+    ph_range: [5.5, 7.5]
+    tolerates_waterlogging: true
+    review_status: placeholder
+    sources:
+      - "Same Kc caveat as boro_rice above -- generic line, needs BRRI Aman-specific field verification."
+      - "Lower reference yield than Boro reflects typical rainfed vs irrigated gap; needs a cited DAE/BBS figure, not assumed."
+      - "Price, yield and cost figures are illustrative placeholders."
+
+  jute:
+    display_name: "Jute (tossa or white, fiber crop)"
+    family: Malvaceae
+    season: kharif1
+    sowing_window: ["03-15", "04-15"]
+    duration_days: 120
+    stage_days: [15, 30, 50, 25]
+    kc: {ini: 0.5, mid: 1.10, end: 0.65}
+    root_depth_m: 0.6
+    n_fixing: false
+    residue_return: high
+    heat_critical_tmax_c: 38
+    heat_sensitive_stage: "early vegetative (germination-establishment)"
+    labour_person_days_per_ha: 110
+    price_bdt_per_kg: 55
+    reference_yield_kg_per_ha: 2000
+    prod_cost_bdt_per_ha: 45000
+    ph_range: [6.0, 7.5]
+    tolerates_waterlogging: true
+    review_status: placeholder
+    sources:
+      - "FAO-56 Table 12 has no jute entry. Kc line here is a rough fiber-crop analogue, not a cited measurement."
+      - "ACTION: replace with Bangladesh Jute Research Institute (BJRI) figures before Phase-2."
+      - "Price, yield and cost figures are illustrative placeholders (jute price is historically volatile -- do not hardcode without a current source)."
+
+  wheat:
+    display_name: "Wheat"
+    family: Poaceae
+    season: rabi
+    sowing_window: ["11-15", "12-10"]
+    duration_days: 110
+    stage_days: [15, 25, 50, 20]
+    kc: {ini: 0.55, mid: 1.02, end: 0.52}
+    root_depth_m: 1.0
+    n_fixing: false
+    residue_return: medium
+    heat_critical_tmax_c: 32
+    heat_sensitive_stage: "grain-filling"
+    labour_person_days_per_ha: 55
+    price_bdt_per_kg: 38
+    reference_yield_kg_per_ha: 3400
+    prod_cost_bdt_per_ha: 42000
+    ph_range: [6.0, 7.5]
+    tolerates_waterlogging: false
+    review_status: cited
+    sources:
+      - "Kc values are midpoints of ranges measured by energy-balance (eddy/lysimeter-equivalent) methods for wheat in the North Nile Delta, Egypt (Omar, M., 'Adjusted Crop Coefficient for Wheat Using Energy Balance Systems in North Nile Delta of Egypt', CGIAR MEL repository): ini 0.43-0.68, dev 0.75-1.02, mid 0.94-1.11, end 0.40-0.64."
+      - "CAUTION: Egypt-calibrated, not Bangladesh-calibrated. The source paper's own conclusion is that local calibration is necessary -- treat as a reasonable starting point pending a BARI figure, not a final answer."
+      - "Price, yield and cost figures are illustrative placeholders."
+
+  mustard:
+    display_name: "Mustard / rapeseed (Brassica juncea)"
+    family: Brassicaceae
+    season: rabi
+    sowing_window: ["10-25", "11-20"]
+    duration_days: 85
+    stage_days: [12, 20, 33, 20]
+    kc: {ini: 0.39, mid: 1.02, end: 0.50}
+    root_depth_m: 0.6
+    n_fixing: false
+    residue_return: low
+    heat_critical_tmax_c: 30
+    heat_sensitive_stage: "flowering"
+    labour_person_days_per_ha: 40
+    price_bdt_per_kg: 90
+    reference_yield_kg_per_ha: 1150
+    prod_cost_bdt_per_ha: 28000
+    ph_range: [5.5, 7.5]
+    tolerates_waterlogging: false
+    review_status: cited
+    sources:
+      - "Kc values (ini/mid/end) are from a weighing-lysimeter field study of mustard cv. Pusa Vijay under semi-arid rabi conditions (single-Kc results, rabi 2013-14 season), reporting 0.39 / 1.02 / 0.50 for initial/mid/late (development-stage value in the same study: 0.72)."
+      - "Reasonable proxy for Bangladesh rabi mustard given similar semi-arid rabi conditions, but not a Bangladesh-grown measurement -- verify against BARI oilseed research before relying on it."
+      - "Price, yield and cost figures are illustrative placeholders (mustard price is markedly higher per kg than cereals -- order of magnitude checked, exact figure not)."
+
+  lentil:
+    display_name: "Lentil / Masur"
+    family: Fabaceae
+    season: rabi
+    sowing_window: ["11-01", "11-25"]
+    duration_days: 100
+    stage_days: [15, 25, 40, 20]
+    kc: {ini: 0.40, mid: 1.10, end: 0.30}
+    root_depth_m: 0.6
+    n_fixing: true
+    residue_return: high
+    heat_critical_tmax_c: 30
+    heat_sensitive_stage: "flowering-pod fill"
+    labour_person_days_per_ha: 35
+    price_bdt_per_kg: 105
+    reference_yield_kg_per_ha: 1150
+    prod_cost_bdt_per_ha: 24000
+    ph_range: [6.0, 7.5]
+    tolerates_waterlogging: false
+    review_status: placeholder
+    sources:
+      - "Kc line is a commonly-cited generic legume/lentil approximation seen in secondary FAO-56-based compilations, NOT verified here against the primary FAO-56 Table 12 text or a field study."
+      - "ACTION: confirm against FAO-56 Table 12 directly and against BARI pulse-research figures before Phase-2."
+      - "Price, yield and cost figures are illustrative placeholders; lentil is typically high-value per kg among rabi pulses, which is reflected directionally, not precisely."
+
+# Rotation-break rule support: crops sharing a family should not be scheduled
+# in consecutive slots where local disease/pest carry-over is a known issue
+# (blueprint Section 6.3). Family field above drives this automatically.

@@ -1,0 +1,63 @@
+# fieldshift region pack -- Mymensingh pilot, v0.1
+# A "region pack" is meant to be the ONLY thing that changes to point the
+# same engine at a different place (blueprint Section 4.2, "configuration
+# over code"). Every value below is a starting default the farmer can edit
+# in the app (Section 8.2, screen 2) -- none of it is asserted as ground
+# truth for any specific real farmer's field.
+
+field_defaults:
+  block_id: "mymensingh_demo_block_01"
+  lat: 24.75
+  lon: 90.41
+  area_ha: 0.4
+  soil_texture: "silty clay loam"       # PLACEHOLDER -- pull from SoilGrids for the real block (Section 5.2)
+  soil_ph: 6.4                           # PLACEHOLDER -- typical for the region, not measured
+  soil_organic_carbon_pct: 1.1           # PLACEHOLDER
+  irrigation_reliable: true
+  irrigation_source: "shallow tubewell"
+  land_type: "medium highland"
+  previous_crop: null
+  data_sources:
+    soil: "PLACEHOLDER -- replace with SoilGrids WCS/Earth Engine pull, see blueprint Section 5.2/A.4"
+    location: "approximate Mymensingh Sadar upazila centroid, not a specific farmer plot"
+
+# Candidate rotations the generator proposes for a 1-year cycle. crop_ids
+# reference config/crops.yaml. This list is intentionally small and mixes
+# genuinely-feasible sequences with two that are DELIBERATELY tight on
+# calendar turnaround (R5, R6) so the constraint filter in engine/
+# constraints.py has something real to catch -- see tests/test_engine.py.
+candidate_rotations:
+  - rotation_id: R1
+    label: "Boro rice -> Aman rice (double rice, current common practice)"
+    crop_ids: [boro_rice, aman_rice]
+  - rotation_id: R2
+    label: "Mustard -> Aman rice"
+    crop_ids: [mustard, aman_rice]
+  - rotation_id: R3
+    label: "Wheat -> Aman rice"
+    crop_ids: [wheat, aman_rice]
+  - rotation_id: R4
+    label: "Lentil -> Aman rice (legume break crop)"
+    crop_ids: [lentil, aman_rice]
+  - rotation_id: R5
+    label: "Mustard -> Jute -> Aman rice (triple crop)"
+    crop_ids: [mustard, jute, aman_rice]
+  - rotation_id: R6
+    label: "Lentil -> Jute -> Aman rice (triple crop)"
+    crop_ids: [lentil, jute, aman_rice]
+  - rotation_id: R7
+    label: "Boro rice only (baseline, rest of year fallow)"
+    crop_ids: [boro_rice]
+  - rotation_id: R8
+    label: "Aman rice only (baseline, rest of year fallow)"
+    crop_ids: [aman_rice]
+
+# Minimum turnaround (days) required between one crop's harvest and the next
+# crop's sowing-window start, for land preparation. Blueprint Section 6.3.
+min_turnaround_days: 10
+
+# Families that should not appear in consecutive slots (disease/pest
+# carry-over). Left empty deliberately for v0.1 -- none of our crops share a
+# family across consecutive slots in the candidate list above, so there is
+# nothing to demonstrate yet; add real, cited rules here in Phase 2.
+avoid_consecutive_families: []

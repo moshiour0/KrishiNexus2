@@ -1,0 +1,125 @@
+dimensions:
+  - soil_health
+  - nutrient_balance
+  - soil_water_resilience
+  - irrigation_demand
+  - drought_risk
+  - flood_waterlogging_risk
+  - heat_stress_risk
+  - yield_potential
+  - yield_stability
+  - economic_return
+  - operational_feasibility
+  - rotation_diversity
+
+dimension_definitions:
+  soil_health:
+    features:
+      soc_change_proxy_pct: {weight: 0.25, direction: higher}
+      residue_score: {weight: 0.25, direction: higher}
+      ground_cover_fraction: {weight: 0.20, direction: higher}
+      disease_break_value: {weight: 0.10, direction: higher}
+      pH_suitability: {weight: 0.20, direction: higher}
+  nutrient_balance:
+    features:
+      nitrogen_balance_proxy: {weight: 0.40, direction: higher}
+      phosphorus_balance_proxy: {weight: 0.20, direction: higher}
+      potassium_balance_proxy: {weight: 0.20, direction: higher}
+      legume_fraction: {weight: 0.20, direction: higher}
+  soil_water_resilience:
+    features:
+      water_holding_capacity_mm: {weight: 0.45, direction: higher}
+      mean_rootzone_moisture_fraction: {weight: 0.20, direction: higher}
+      soil_water_deficit_mm: {weight: 0.15, direction: lower}
+      mean_smap_rootzone_moisture: {weight: 0.20, direction: higher}
+  irrigation_demand:
+    features:
+      irrigation_mm: {weight: 0.65, direction: lower}
+      irrigation_reliability_burden: {weight: 0.20, direction: lower}
+      water_productivity: {weight: 0.15, direction: higher}
+  drought_risk:
+    features:
+      water_stress_fraction: {weight: 0.50, direction: lower}
+      severe_water_stress_fraction: {weight: 0.25, direction: lower}
+      max_consecutive_dry_days: {weight: 0.25, direction: lower}
+  flood_waterlogging_risk:
+    features:
+      waterlogging_days: {weight: 0.45, direction: lower}
+      heavy_rain_days: {weight: 0.20, direction: lower}
+      flood_exposure: {weight: 0.35, direction: lower}
+  heat_stress_risk:
+    features:
+      heat_stress_days: {weight: 0.55, direction: lower}
+      heat_degree_days: {weight: 0.45, direction: lower}
+  yield_potential:
+    features:
+      climate_adjusted_yield_kg_ha: {weight: 0.70, direction: higher}
+      yield_factor: {weight: 0.30, direction: higher}
+  yield_stability:
+    features:
+      yield_factor: {weight: 0.40, direction: higher}
+      scenario_yield_cv: {weight: 0.35, direction: lower}
+      mean_hls_ndvi: {weight: 0.15, direction: higher}
+      mean_hls_ndmi: {weight: 0.10, direction: higher}
+  economic_return:
+    features:
+      net_return_bdt_ha: {weight: 0.65, direction: higher}
+      roi: {weight: 0.20, direction: higher}
+      income_volatility_proxy: {weight: 0.15, direction: lower}
+  operational_feasibility:
+    features:
+      labour_peak_person_days_ha: {weight: 0.45, direction: lower}
+      labour_total_person_days_ha: {weight: 0.25, direction: lower}
+      calendar_margin_days: {weight: 0.20, direction: higher}
+      market_access_burden: {weight: 0.10, direction: lower}
+  rotation_diversity:
+    features:
+      family_diversity: {weight: 0.45, direction: higher}
+      disease_break_value: {weight: 0.35, direction: higher}
+      legume_fraction: {weight: 0.20, direction: higher}
+
+field:
+  field_id: "mymensingh_demo_v2"
+  lat: 24.75
+  lon: 90.41
+  area_ha: 0.4
+  elevation_m: 18
+  land_type: "medium highland"
+  irrigation_source: "shallow tubewell"
+  previous_crop: null
+  soil:
+    ph: 6.4
+    soc_pct: 1.1
+    total_n_mgkg: 800
+    available_p_mgkg: 12
+    exchangeable_k_mgkg: 140
+    ec_ds_m: 1.0
+    cec_cmolkg: 18
+    bulk_density_g_cm3: 1.38
+    sand_pct: 20
+    silt_pct: 48
+    clay_pct: 32
+    soil_depth_m: 1.2
+    field_capacity_v_v: 0.31
+    wilting_point_v_v: 0.16
+    drainage_class: "medium"
+  farmer:
+    irrigation_reliability: 0.80
+    labour_available_person_days_ha: 120
+    budget_bdt_ha: 100000
+    market_access_score: 0.80
+    risk_tolerance: 0.50
+    preferred_crops: [mustard, lentil, aman_rice]
+    avoided_crops: []
+
+baseline_rotation: [boro_rice, aman_rice]
+
+constraints:
+  turnaround_days: 10
+  max_cycle_days: 430
+
+search:
+  max_sequence_length: 3
+  avoid_consecutive_family: true
+
+# These are demo defaults, not local observations. They are intentionally editable.

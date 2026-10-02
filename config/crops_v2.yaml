@@ -1,0 +1,178 @@
+crops:
+  boro_rice:
+    display_name: "Boro rice"
+    family: Poaceae
+    seasons: [rabi]
+    sowing_window: ["12-15", "01-15"]
+    duration_days: 145
+    stage_days: [20, 35, 60, 30]
+    kc: {ini: 1.05, mid: 1.20, end: 0.90}
+    root_depth_m: 0.50
+    heat_sensitive_stage: {label: "flowering", start: 78, end: 103}
+    heat_threshold_c: 35
+    drought_tolerance: 0.25
+    waterlogging_tolerance: 1.0
+    salinity_tolerance: 0.30
+    n_fixing: false
+    residue_score: 0.60
+    yield_kg_ha: 5800
+    price_bdt_kg: 32
+    cost_bdt_ha: 78000
+    labour_person_days_ha: 95
+    n_demand_kg_ha: 110
+    p_demand_kg_ha: 25
+    k_demand_kg_ha: 80
+    family_break_value: 0.05
+    pH_range: [5.5, 7.5]
+    rice_paddy: true
+    standing_water_days: 110
+    percolation_mm_day: 2.0
+    seepage_mm_day: 1.0
+    yield_stress_sens_water: 1.25
+    yield_stress_sens_heat: 1.00
+    review_status: placeholder
+    source_refs: ["FAO-56 generic rice Kc; replace with BRRI local coefficients"]
+
+  aman_rice:
+    display_name: "Aman rice"
+    family: Poaceae
+    seasons: [kharif2]
+    sowing_window: ["07-15", "08-10"]
+    duration_days: 130
+    stage_days: [20, 30, 55, 25]
+    kc: {ini: 1.05, mid: 1.20, end: 0.90}
+    root_depth_m: 0.50
+    heat_sensitive_stage: {label: "flowering", start: 82, end: 108}
+    heat_threshold_c: 35
+    drought_tolerance: 0.40
+    waterlogging_tolerance: 1.0
+    salinity_tolerance: 0.30
+    n_fixing: false
+    residue_score: 0.60
+    yield_kg_ha: 4200
+    price_bdt_kg: 30
+    cost_bdt_ha: 62000
+    labour_person_days_ha: 90
+    n_demand_kg_ha: 95
+    p_demand_kg_ha: 22
+    k_demand_kg_ha: 65
+    family_break_value: 0.05
+    pH_range: [5.5, 7.5]
+    rice_paddy: true
+    standing_water_days: 90
+    percolation_mm_day: 1.5
+    seepage_mm_day: 0.8
+    review_status: placeholder
+    source_refs: ["FAO-56 generic rice Kc; replace with BRRI local coefficients"]
+
+  jute:
+    display_name: "Jute"
+    family: Malvaceae
+    seasons: [kharif1]
+    sowing_window: ["03-15", "04-15"]
+    duration_days: 120
+    stage_days: [15, 30, 50, 25]
+    kc: {ini: 0.50, mid: 1.10, end: 0.65}
+    root_depth_m: 0.60
+    heat_sensitive_stage: {label: "establishment", start: 0, end: 30}
+    heat_threshold_c: 38
+    drought_tolerance: 0.55
+    waterlogging_tolerance: 0.85
+    salinity_tolerance: 0.45
+    n_fixing: false
+    residue_score: 0.90
+    yield_kg_ha: 2000
+    price_bdt_kg: 55
+    cost_bdt_ha: 45000
+    labour_person_days_ha: 110
+    n_demand_kg_ha: 70
+    p_demand_kg_ha: 18
+    k_demand_kg_ha: 50
+    family_break_value: 0.65
+    pH_range: [6.0, 7.5]
+    review_status: placeholder
+    source_refs: ["BJRI review required for local coefficients and economics"]
+
+  wheat:
+    display_name: "Wheat"
+    family: Poaceae
+    seasons: [rabi]
+    sowing_window: ["11-15", "12-10"]
+    duration_days: 110
+    stage_days: [15, 25, 50, 20]
+    kc: {ini: 0.55, mid: 1.02, end: 0.52}
+    root_depth_m: 1.00
+    heat_sensitive_stage: {label: "grain filling", start: 70, end: 95}
+    heat_threshold_c: 32
+    drought_tolerance: 0.55
+    waterlogging_tolerance: 0.20
+    salinity_tolerance: 0.35
+    n_fixing: false
+    residue_score: 0.60
+    yield_kg_ha: 3400
+    price_bdt_kg: 38
+    cost_bdt_ha: 42000
+    labour_person_days_ha: 55
+    n_demand_kg_ha: 95
+    p_demand_kg_ha: 20
+    k_demand_kg_ha: 45
+    family_break_value: 0.05
+    pH_range: [6.0, 7.5]
+    review_status: placeholder
+    source_refs: ["Literature proxy; local BARI verification required"]
+
+  mustard:
+    display_name: "Mustard"
+    family: Brassicaceae
+    seasons: [rabi]
+    sowing_window: ["10-25", "11-20"]
+    duration_days: 85
+    stage_days: [12, 20, 33, 20]
+    kc: {ini: 0.39, mid: 1.02, end: 0.50}
+    root_depth_m: 0.60
+    heat_sensitive_stage: {label: "flowering", start: 45, end: 70}
+    heat_threshold_c: 30
+    drought_tolerance: 0.55
+    waterlogging_tolerance: 0.20
+    salinity_tolerance: 0.45
+    n_fixing: false
+    residue_score: 0.35
+    yield_kg_ha: 1150
+    price_bdt_kg: 90
+    cost_bdt_ha: 28000
+    labour_person_days_ha: 40
+    n_demand_kg_ha: 55
+    p_demand_kg_ha: 14
+    k_demand_kg_ha: 35
+    family_break_value: 0.45
+    pH_range: [5.5, 7.5]
+    review_status: placeholder
+    source_refs: ["Literature proxy; BARI oilseed verification required"]
+
+  lentil:
+    display_name: "Lentil"
+    family: Fabaceae
+    seasons: [rabi]
+    sowing_window: ["11-01", "11-25"]
+    duration_days: 100
+    stage_days: [15, 25, 40, 20]
+    kc: {ini: 0.40, mid: 1.10, end: 0.30}
+    root_depth_m: 0.60
+    heat_sensitive_stage: {label: "flowering-pod fill", start: 55, end: 85}
+    heat_threshold_c: 30
+    drought_tolerance: 0.65
+    waterlogging_tolerance: 0.15
+    salinity_tolerance: 0.40
+    n_fixing: true
+    residue_score: 0.90
+    yield_kg_ha: 1150
+    price_bdt_kg: 105
+    cost_bdt_ha: 24000
+    labour_person_days_ha: 35
+    n_demand_kg_ha: 25
+    p_demand_kg_ha: 16
+    k_demand_kg_ha: 30
+    family_break_value: 0.95
+    pH_range: [6.0, 7.5]
+    review_status: placeholder
+    source_refs: ["BARI pulse verification required"]

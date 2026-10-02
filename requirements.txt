@@ -1,0 +1,6 @@
+PyYAML>=6.0,<7
+fastapi>=0.115.0
+earthengine-api>=1.5,<2
+uvicorn>=0.30.0
+pydantic>=2.0.0
+starlette>=0.40.0
